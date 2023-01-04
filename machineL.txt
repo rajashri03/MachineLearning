@@ -1,0 +1,143 @@
+https://www.google.com/search?q=machine+learning+types+and+algorithms&rlz=1C1YTUH_enIN1023IN1023&source=lnms&tbm=vid&sa=X&ved=2ahUKEwiIqsTez6b8AhWFzzgGHc1RCLMQ_AUoAnoECAEQBA&biw=1280&bih=609&dpr=1.5#fpstate=ive&vld=cid:7fe3b415,vid:olFxW7kdtP8
+
+Classify the problems as supervised, unsupervised, reinforcement or semi supervised
+a. Spam filtering: Is an email spam or not----Supervised(classification)
+
+b. Given a list of customers and information about them, discover groups of similar
+users. This knowledge can then be used for targeted marketing-Unsupervised-clustering
+
+c. Robotics: A robot is in a maze, and it needs to find a way out.-reinforcement
+
+d. Training an AI for a complex game such as Civilization or Dota-reinforcement
+
+e. Anomaly detection: Given measurements from sensors in a manufacturing
+facility, identify anomalies, i.e. that something is wrong-
+superivsed-classfication
+
+f. Discover patterns in data such as whenever it rains, people tend to stay indoors.
+When it is hot, people buy more ice-cream.-superivsed--classfication
+
+g. Given information about a house, predict its price- superivsed-regression
+
+h. Netflix: Given a user and a movie, predict the rating the user is going to give to
+the movie-----supervised-regression
+
+
+i. Given an image, output which objects are present in the image-supervised
+
+
+
+
+
+Artificial intelligence and machine learning are the part of computer science that 
+are correlated with each other. 
+
+
+Artificial intelligence is a technology using which we can create intelligent systems that can simulate human intelligence.
+
+
+What is Deep Learning and How Does It Works [Explained]
+Lesson 1 of 18By Kate Reyes
+
+Last updated on Dec 8, 20221054913
+What is Deep Learning and How Does It Work [Explained]
+PreviousNext
+Table of Contents
+What is Deep Learning?How Does Deep Learning Work?Example of Deep Learning at WorkRise of Deep LearningDeep Learning in ActionView More
+Artificial Intelligence and machine learning are the cornerstones of the next revolution
+ in computing. These technologies hinge on the ability to recognize patterns then, based 
+on data observed in the past, predict future outcomes. This explains the suggestions, 
+Amazon offers as you shop online or how Netflix knows your penchant for bad 80s movies. 
+Although machines utilizing AI principles are often referred to as “smart,” most of these systems don’t learn on their own; the intervention of human programming is necessary. Data scientists prepare the inputs, selecting the variables to be used for predictive analytics. Deep learning, on the other hand, can do this job automatically. 
+
+Become an AI and ML Expert with Purdue & IBM!
+Professional Certificate Program in AI and MLEXPLORE PROGRAMBecome an AI and ML Expert with Purdue & IBM!
+What is Deep Learning?
+Deep learning can be considered as a subset of machine learning. It is a field that is based on learning and improving on its own by examining computer algorithms. 
+Machine Learning-
+Machine learning is an application of AI that enables systems to learn and 
+improve from experience without being explicitly programmed.
+
+
+1. Supervised machine learning
+This type of ML involves supervision, where machines are trained on labeled datasets
+ and enabled to predict outputs based on the provided training. The labeled dataset 
+specifies that some input and output parameters are already mapped.
+ Hence, the machine is trained with the input and corresponding output.
+
+
+The primary objective of the supervised learning technique is to map the input variable 
+(a) with the output variable (b). 
+
+Advantages and Disadvantages of Supervised Learning
+Advantages:
+
+Since supervised learning work with the labeled dataset so we can have an exact idea about the classes of objects.
+These algorithms are helpful in predicting the output on the basis of prior experience.
+Disadvantages:
+
+These algorithms are not able to solve complex tasks.
+It may predict the wrong output if the test data is different from the training data.
+It requires lots of computational time to train the algorithm.
+
+
+Classification: These refer to algorithms that address classification problems where the 
+output variable is categorical; for example, yes or no, true or false, male or female,
+ etc. Real-world applications of this category are evident in spam detection and email 
+filtering.
+
+
+Regression is a technique for investigating the relationship between independent variables 
+or features and a dependent variable or outcome
+
+
+
+
+
+
+Unsupervised Machine Learning
+
+as its name suggests, there is no need for supervision. It means that in unsupervised 
+machine learning, the machine is trained using the unlabeled dataset, and the machine 
+predicts the output without any supervision.
+
+In unsupervised learning, the models are trained with data that is neither classified
+ nor labelled, and the model acts on that data without any supervision.
+
+
+
+Let’s take an example to understand it more preciously; suppose there is a basket of
+ fruit images, and we input it into the machine learning model. The images are totally 
+unknown to the model, and the task of the machine is to find the patterns and categories
+ of the objects.
+
+So, now the machine will discover its patterns and differences, such as color difference,
+ and shape difference, and predict the output when it is tested with the test dataset.
+
+Categories of Unsupervised Machine Learning
+Unsupervised Learning can be further classified into two types, which are given below:
+
+Clustering
+“Clustering” is the process of grouping similar entities together.
+Association
+
+
+
+
+
+
+Preprocessing Data
+Data preprocessing is a way of converting data from the raw form to a much more usable
+ or desired form, i.e., making data more meaningful by rescaling, standardizing, binarizing, one hot encoding, and label encoding.
+
+data collection
+Data Cleaning
+
+Data Cleaning
+Data Cleaning is particularly done as part of data preprocessing to clean the data by 
+filling missing values, smoothing the noisy data, resolving the inconsistency,
+
+
+data integration
+data transformation
+data reduction 
