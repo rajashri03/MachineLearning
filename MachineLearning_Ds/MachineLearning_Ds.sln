@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachineLearning_Ds", "MachineLearning_Ds.csproj", "{C0723CFE-6B0F-41D7-9FDF-F1106985DB8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLProject", "..\MLProject\MLProject.csproj", "{8EAF38B6-148D-4285-8897-99CD025DB0F8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{C0723CFE-6B0F-41D7-9FDF-F1106985DB8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0723CFE-6B0F-41D7-9FDF-F1106985DB8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0723CFE-6B0F-41D7-9FDF-F1106985DB8B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EAF38B6-148D-4285-8897-99CD025DB0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EAF38B6-148D-4285-8897-99CD025DB0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EAF38B6-148D-4285-8897-99CD025DB0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EAF38B6-148D-4285-8897-99CD025DB0F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
