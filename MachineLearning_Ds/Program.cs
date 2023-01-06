@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.ConstrainedExecution;
 using System.Text.RegularExpressions;
+using static Microsoft.ML.Transforms.NormalizingTransformer;
 
 namespace NullValues
 {
@@ -22,6 +24,7 @@ namespace NullValues
         public static List<CountryData> itemlist = new List<CountryData>();
         static void Main(string[] args)
         {
+
             int sumOfAge = 0, sumOfSalary = 0, meanOfSalary;
             var lines = System.IO.File.ReadAllLines("D:\\MachineLearning\\MachineLearning_Ds\\data_preprocessing.csv").Skip(1).TakeWhile(t => t != null);
 
@@ -55,10 +58,10 @@ namespace NullValues
                     purchasedList.Add(0);
                 }
             }
-            foreach (var item in purchasedList)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in purchasedList)
+            //{
+            //    Console.WriteLine(item);
+            //}
             for (int i = 1; i < itemlist.Count; i++)
             {
                 foreach (var item in itemlist)
@@ -111,6 +114,10 @@ namespace NullValues
             }
 
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("*********************Categorical data-one hot encoding***************************");
+            Console.ResetColor();
+
             //******************************************Categorical data-one hot encoding***************************
 
             var context = new MLContext();
@@ -125,9 +132,6 @@ namespace NullValues
             // Fit and transform the data.
             IDataView oneHotEncodedData = pipeline.Fit(data).Transform(data);
 
-            // PrintDataColumn(oneHotEncodedData, "PurchasedOneHotEncoded");
-            // PrintDataColumn(oneHotEncodedData, "EducationOneHotEncoded");
-            //Replacing function by using code here
 
             List<float> Encode1 = new List<float>();
             List<float> Encode2 = new List<float>();
@@ -159,10 +163,6 @@ namespace NullValues
                 Console.WriteLine();
             }
 
-            // We have 3 slots because there are three categories in the
-            // 'Education' column.
-
-            // A pipeline for one hot encoding the Education column (using keying).
             var keyPipeline = context.Transforms.Categorical.OneHotEncoding(
                 "EducationOneHotEncoded", "Country",
                 OneHotEncodingEstimator.OutputKind.Key);
@@ -177,25 +177,14 @@ namespace NullValues
                 "One Hot Encoding of single column 'Country', with key type " +
                 "output.");
 
-            // One Hot Encoding of single column 'Country', with key type output.
-
-            /*foreach (uint element in keyEncodedColumn)
-                Console.WriteLine(element);
-            */
 
             List<uint> CountryEncoded = new List<uint>();
 
             foreach (uint element in keyEncodedColumn)
             {
-                //Console.WriteLine(element);
                 CountryEncoded.Add(element);
             }
-            //added the encoded values to list
-            //foreach (uint element in CountryEncoded)
-            //{
-            //    Console.WriteLine(element);
-            //}
-
+           
             //Adding column to csv file
             List<string> lines2 = File.ReadAllLines("D:\\MachineLearning\\MachineLearning_Ds\\data_preprocessing.csv").ToList();
             //add new column to the header row
@@ -294,10 +283,113 @@ namespace NullValues
 
             }
 
-            //File.WriteAllLines("C:/Users/Admin/Desktop/WebPractice/MachineLearning/DataPreprocessing1/DataPreprocessingPruchaseList/Encoded.csv", EncodedList);
+
+
+
+
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("*********************Feature Scaling***************************");
+            Console.ResetColor();
+            //**************************************************Scaling*************************************
+            
+            IDataView data1 = context.Data.LoadFromTextFile<CountryData2>(@"D:\MachineLearning\MachineLearning_Ds\Encoded.csv", hasHeader: true, separatorChar: ',');
+            var columnPair = new[]
+            {
+                new InputOutputColumnPair("Age"),
+                new InputOutputColumnPair("Salary"),
+                new InputOutputColumnPair("purchasedList"),
+                new InputOutputColumnPair("Country_France"),
+                new InputOutputColumnPair("Country_Spain"),
+                new InputOutputColumnPair("Country_Germany")
+            };
+            var normalize = context.Transforms.NormalizeMeanVariance(columnPair,
+                fixZero: false);
+            var normalizeFixZero = context.Transforms.NormalizeMeanVariance(columnPair,
+                fixZero: true);
+
+            var normalizeTransform = normalize.Fit(data1);
+            var transformedData = normalizeTransform.Transform(data1);
+            var normalizeFixZeroTransform = normalizeFixZero.Fit(data1);
+            var fixZeroData = normalizeFixZeroTransform.Transform(data1);
+            var age = transformedData.GetColumn<float>("Age");
+            var salary = transformedData.GetColumn<float>("Salary");
+            var purchasedList1 = transformedData.GetColumn<float>("purchasedList");
+            var Country_France = transformedData.GetColumn<float>("Country_France");
+            var Country_Spain = transformedData.GetColumn<float>("Country_Spain");
+            var Country_Germany = transformedData.GetColumn<float>("Country_Germany");
+
+          
+            List<CountryData2> ListOfAllColumns = new List<CountryData2>();
+
+            string traintestpath = "D:\\MachineLearning\\MachineLearning_Ds\\traintest.csv";
+           
+            //Columns header name
+            var preview = transformedData.Preview();
+            foreach (var col in preview.Schema)
+            {
+                //Console.WriteLine(col.Index); 
+                if (((col.Index % 2) == 0))
+                {
+                    string name=col.Name;
+                    Console.Write(col.Name + "\t");
+                }
+            }
+            Console.WriteLine();
+            //All values
+            for (int j = 0; j < preview.RowView.Length; j++)
+            {
+                for (int i = 1; i < 12; i++)
+                {
+                    if (i % 2 != 0)
+                    {
+                        Console.Write(preview.RowView[j].Values[i].Value + "\t");
+                    }
+                }
+                Console.WriteLine();
+            }
+            
+            for (int j = 0; j < preview.RowView.Length; j++)
+            {
+                ListOfAllColumns.Add(new CountryData2()
+                {
+                    Age = ((float)preview.RowView[j].Values[1].Value),
+                    Salary = ((float)preview.RowView[j].Values[3].Value),
+                    purchasedList = ((float)preview.RowView[j].Values[5].Value),
+                    Country_France = ((float)preview.RowView[j].Values[7].Value),
+                    Country_Spain = ((float)preview.RowView[j].Values[9].Value),
+                    Country_Germany = ((float)preview.RowView[j].Values[11].Value),
+                });
+            }
+            foreach (var item in ListOfAllColumns)
+            {
+                Console.WriteLine(item.Age + " " + item.Salary + "  " + item.purchasedList + "  " + item.Country_France + "  " + item.Country_Spain + "  " + item.Country_Germany);
+            }
+
+            var dataview = context.Data.LoadFromEnumerable(ListOfAllColumns);
+            var split1 = context.Data.TrainTestSplit(dataview, testFraction: 0.2);
+            var trainSet = context.Data.CreateEnumerable<CountryData2>(split1.TrainSet, reuseRowObject: false);
+
+            var testSet = context.Data.CreateEnumerable<CountryData2>(split1.TestSet, reuseRowObject: false);
+
+            PrintPreviewRows(trainSet, testSet);
+
+
         }
+        //https://learn.microsoft.com/en-us/dotnet/api/microsoft.ml.dataoperationscatalog.traintestsplit?view=ml-dotnet
+        private static void PrintPreviewRows(IEnumerable<CountryData2> trainSet,
+            IEnumerable<CountryData2> testSet)
 
+        {
 
+            Console.WriteLine($"The data in the Train split.\n");
+            foreach (var row in trainSet)
+                Console.WriteLine($"{row.Age}, {row.Salary},{row.purchasedList},{row.Country_France},{row.Country_Spain},{row.Country_Germany}");
+
+            Console.WriteLine($"\nThe data in the Test split.\n");
+            foreach (var row in testSet)
+                Console.WriteLine($"{row.Age}, {row.Salary},{row.purchasedList},{row.Country_France},{row.Country_Spain},{row.Country_Germany}");
+        }
 
         private static void PrintDataColumn(IDataView transformedData,
             string columnName)
@@ -308,16 +400,24 @@ namespace NullValues
             List<CountryData2> EncodedList1 = new List<CountryData2>();
 
             Console.WriteLine(columnName);
-            //foreach (var row in countSelectColumn)
-            //{
-            //    for (var i = 0; i < row.Length; i++)
-            //        Console.Write($"{row[i]}\t");
+            foreach (var row in countSelectColumn)
+            {
+                for (var i = 0; i < row.Length; i++)
+                    Console.Write($"{row[i]}\t");
 
-            //    Console.WriteLine();
-            //}
+                Console.WriteLine();
+            }
         }
-    
 
+        private class DataPoint
+        {
+            public string Country { get; set; }
+        }
+
+
+
+       
     }
+    
 
 }
