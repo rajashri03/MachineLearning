@@ -44,6 +44,7 @@ namespace NullValues
             {
                 Console.WriteLine(item.Country + " " + item.Age + "  " + item.Salary + "  " + item.Purchased);
             }
+
             List<int> purchasedList = new List<int>();
             //printing only purchase
             foreach (var item in itemlist)
@@ -375,18 +376,22 @@ namespace NullValues
             PrintPreviewRows(trainSet, testSet);
 
 
+
         }
+
+
+
         //https://learn.microsoft.com/en-us/dotnet/api/microsoft.ml.dataoperationscatalog.traintestsplit?view=ml-dotnet
         private static void PrintPreviewRows(IEnumerable<CountryData2> trainSet,
             IEnumerable<CountryData2> testSet)
 
         {
 
-            Console.WriteLine($"The data in the Train split.\n");
+            Console.WriteLine($"Train Data .\n");
             foreach (var row in trainSet)
                 Console.WriteLine($"{row.Age}, {row.Salary},{row.purchasedList},{row.Country_France},{row.Country_Spain},{row.Country_Germany}");
 
-            Console.WriteLine($"\nThe data in the Test split.\n");
+            Console.WriteLine($"\n Test Data split.\n");
             foreach (var row in testSet)
                 Console.WriteLine($"{row.Age}, {row.Salary},{row.purchasedList},{row.Country_France},{row.Country_Spain},{row.Country_Germany}");
         }

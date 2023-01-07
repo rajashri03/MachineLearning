@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q/HeUxJwJt+flqbAMR69SNVYl22n5GRgSGRnp2cyv5BguL45dbyI6vKl6H1B4yZWXdaZtT8p+NyJ+w0oxqeazg==",
+  "dgSpecHash": "OdgFpXbNLA0UZ4P0AVkHVIXwC/O0ypf6M2Y6Xx/fsxI0viI4/XRAG4qSbxmOOiKbvpp87s2Hac6M4FTVG/t7hA==",
   "success": true,
   "projectFilePath": "D:\\MachineLearning\\MachineLearning_Ds\\MachineLearning_Ds.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.ml\\2.0.0\\microsoft.ml.2.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.ml.cpumath\\2.0.0\\microsoft.ml.cpumath.2.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.ml.dataview\\2.0.0\\microsoft.ml.dataview.2.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.ml.fasttree\\2.0.0\\microsoft.ml.fasttree.2.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",

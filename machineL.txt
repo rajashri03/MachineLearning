@@ -141,3 +141,23 @@ filling missing values, smoothing the noisy data, resolving the inconsistency,
 data integration
 data transformation
 data reduction 
+
+
+
+
+
+
+
+
+Feature Scaling
+
+
+
+https://learn.microsoft.com/en-us/dotnet/api/microsoft.ml.dataoperationscatalog.traintestsplit?view=ml-dotnet
+Neelesh Rawat5:18 PM
+https://www.geeksforgeeks.org/normalization-vs-standardization/
+
+
+one hot encodign
+
+https://www.macivortech.com/blog/mlnet-v-python-multiple/

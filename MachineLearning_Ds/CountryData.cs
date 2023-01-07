@@ -17,7 +17,8 @@ namespace NullValues
         [LoadColumn(3)]
         public string Purchased { get; set; }
 
-
+        [LoadColumn(4)]
+        public float FareAmount;
     }
     public class CountryData2
     {
