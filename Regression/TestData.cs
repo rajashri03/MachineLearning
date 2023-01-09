@@ -130,7 +130,7 @@ namespace Regression
 
             foreach (var item in ListOfAllColumnstest)
             {
-                Console.WriteLine(item.x + "             " + item.y);
+                Console.WriteLine(item.x + "              " + item.y);
             }
           
 
