@@ -202,6 +202,7 @@ namespace Regression
                 Console.WriteLine(item.x + "              " + item.y);
             }
             */
+           
 
             List<float> xvalueTest = new List<float>();
 
@@ -255,19 +256,26 @@ namespace Regression
 
             // calculating the accuracy
             int N = PredictList.Count;
-
+            float sumytest = 0;
+            float sumypreidct = 0;
             float[] Accuracy = { };
             List<float> AccuracyList = new List<float>();
             for (int j = 0; j < predictions.Length; j++)
             {
-                AccuracyList.Add((y_test[j] - y_predict[j]) / N);
+                AccuracyList.Add((y_test[j] - y_predict[j]));
             }
+
+            float AccuracyValue = 0;
 
             Console.WriteLine("*******************Calculating Accuary by Root Mean Square!********************");
             foreach (var item in AccuracyList)
             {
-                Console.WriteLine(item.ToString());
+                //Console.WriteLine(item.ToString());
+                AccuracyValue += item;
             }
+
+            double Square = Math.Sqrt((Math.Pow(AccuracyValue, 2)) / N);
+            Console.WriteLine("Root Mean Square : " + Square);
 
 
         }

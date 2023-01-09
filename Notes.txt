@@ -1,0 +1,53 @@
+What is Machine Learning?
+Machine Learning is an application of Artificial Intelligence that enables systems to
+learn from vast volumes of data and solve specific problems. It uses computer 
+algorithms that improve their efficiency automatically through experience.
+
+
+
+Machine learning is a subset of AI, which enables the machine to automatically learn
+from data, improve performance from past experiences, and make predictions.
+Machine learning contains a set of algorithms that work on a huge amount of data. 
+Data is fed to these algorithms to train them, and on the basis of training, they 
+build the model & perform a specific task.
+
+These ML algorithms help to solve different business problems like Regression,
+Classification, Forecasting, Clustering, and Associations, etc.
+
+ML types-
+There are primarily three types of machine learning: 
+Supervised, Unsupervised, and Reinforcement Learning.
+
+
+
+Supervised-
+Supervised machine learning is based on supervision.
+
+that uses labeled data to train machine learning models. In labeled data, 
+the output is already known. 
+The model just needs to map the inputs to the respective outputs. 
+
+
+Working of supervised--
+Supervised learning algorithms take labeled inputs and map them to the known outputs, 
+which means you already know the target variable. 
+
+
+Supervised learning algorithms are generally used for solving classification
+ and regression problems.
+
+
+Classification: Supervised learning problem that involves predicting a class label.
+Regression: Supervised learning problem that involves predicting a numerical label.
+
+
+
+
+
+
+
+Unsupervised Learning
+Overview:
+Unsupervised learning is a type of machine learning that uses unlabeled data to train
+ machines. Unlabeled data doesn’t have a fixed output variable. The model learns from 
+the data, discovers the patterns and features in the data, and returns the output. 
