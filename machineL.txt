@@ -161,3 +161,47 @@ https://www.geeksforgeeks.org/normalization-vs-standardization/
 one hot encodign
 
 https://www.macivortech.com/blog/mlnet-v-python-multiple/
+
+
+
+
+difference = Y_test - y_pred
+
+mean_absolute_error = np.mean(abs(difference))
+
+print(f"Mean Absolute Error  :  {mean_absolute_error}")
+
+mean_squared_error = np.mean(difference**2)
+
+print(f"Mean Squared Error  :  {mean_squared_error}")
+
+root_mean_squared_error = np.sqrt(mean_squared_error)
+
+print(f"Root Mean Squared Error  :  {root_mean_squared_error}")
+
+r2 = 1-(sum(difference**2)/sum((Y_test-np.mean(Y_test))**2))
+
+print(f"R - Squared  :  {r2}")
+
+adjusted_r_squared = 1 - (((1-r2)*(len(Y_test)-1))/
+
+
+
+
+
+
+
+
+
+Neelesh Rawat7:14 PM
+test.csv data ko normalize
+Neelesh Rawat7:15 PM
+x, y seperate
+x_test, y_test seperate krlo
+Neelesh Rawat7:16 PM
+155 line pe x ki jagah x_test
+Neelesh Rawat7:17 PM
+pass krna hai
+u will get y_pred
+y_pred will the predicted result
+then do mean absolute error

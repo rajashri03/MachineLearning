@@ -73,28 +73,28 @@ namespace Regression
         public static void Standardization()
         {
             MLContext mlcontext = new MLContext();
-            IDataView data1 = mlcontext.Data.LoadFromTextFile<DataPoint>(@"D:\MachineLearning\Regression\AfterRemove_test.csv", hasHeader: true, separatorChar: ',');
-            var columnPair = new[]
+            IDataView datatest= mlcontext.Data.LoadFromTextFile<DataPoint>(@"D:\MachineLearning\Regression\AfterRemove_test.csv", hasHeader: true, separatorChar: ',');
+            var columnPairtest = new[]
             {
                 new InputOutputColumnPair("x"),
                 new InputOutputColumnPair("y")
             };
-            var normalize = mlcontext.Transforms.NormalizeMeanVariance(columnPair,
+            var normalizetest = mlcontext.Transforms.NormalizeMeanVariance(columnPairtest,
                 fixZero: false);
-            var normalizeFixZero = mlcontext.Transforms.NormalizeMeanVariance(columnPair,
+            var normalizeFixZerotest = mlcontext.Transforms.NormalizeMeanVariance(columnPairtest,
                 fixZero: true);
 
-            var normalizeTransform = normalize.Fit(data1);
-            var transformedData = normalizeTransform.Transform(data1);
-            var normalizeFixZeroTransform = normalizeFixZero.Fit(data1);
-            var fixZeroData = normalizeFixZeroTransform.Transform(data1);
-            var age = transformedData.GetColumn<float>("x");
-            var salary = transformedData.GetColumn<float>("y");
+            var normalizeTransformtest = normalizetest.Fit(datatest);
+            var transformedDatatest = normalizeTransformtest.Transform(datatest);
+            var normalizeFixZeroTransformtest = normalizeFixZerotest.Fit(datatest);
+            var fixZeroDatatest = normalizeFixZeroTransformtest.Transform(datatest);
+            var xtest = transformedDatatest.GetColumn<float>("x");
+            var ytest = transformedDatatest.GetColumn<float>("y");
 
-            List<DataPoint> ListOfAllColumns = new List<DataPoint>();
-            var preview = transformedData.Preview();
+            List<DataPoint> ListOfAllColumnstest = new List<DataPoint>();
+            var previewtest = transformedDatatest.Preview();
             //Headers
-            foreach (var col in preview.Schema)
+            foreach (var col in previewtest.Schema)
             {
                 //Console.WriteLine(col.Index); 
                 if (((col.Index % 2) == 0))
@@ -119,20 +119,20 @@ namespace Regression
             //}
 
             //adding 
-            for (int j = 0; j < preview.RowView.Length; j++)
+            for (int j = 0; j < previewtest.RowView.Length; j++)
             {
-                ListOfAllColumns.Add(new DataPoint()
+                ListOfAllColumnstest.Add(new DataPoint()
                 {
-                    x = ((float)preview.RowView[j].Values[1].Value),
-                    y = ((float)preview.RowView[j].Values[3].Value)
+                    x = ((float)previewtest.RowView[j].Values[1].Value),
+                    y = ((float)previewtest.RowView[j].Values[3].Value)
                 });
             }
 
-            foreach (var item in ListOfAllColumns)
+            foreach (var item in ListOfAllColumnstest)
             {
                 Console.WriteLine(item.x + "              " + item.y);
             }
-
+          
 
         }
     }
